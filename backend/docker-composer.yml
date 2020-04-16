@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  db:
+    build: docker_db/setup
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db
+    volumes:
+      - ./docker_db/data:/data
