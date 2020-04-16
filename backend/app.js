@@ -2,7 +2,7 @@ const Koa = require('koa')
 const logger = require('koa-logger')
 const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
-require('dotenv').config({ path: __dirname + '/.env' })
+require('dotenv').config({path: __dirname + '/.env'})
 
 
 const app = new Koa()
@@ -12,13 +12,13 @@ app.use(logger())
 
 // Error handling middleware
 app.use(async (ctx, next) => {
-  try {
-    await next()
-  } catch (err) {
-    ctx.status = err.status || 500
-    ctx.body = err.message
-    ctx.app.emit('error', err, ctx)
-  }
+    try {
+        await next()
+    } catch (err) {
+        ctx.status = err.status || 500
+        ctx.body = err.message
+        ctx.app.emit('error', err, ctx)
+    }
 })
 
 app.use(bodyParser())
@@ -26,13 +26,13 @@ app.use(bodyParser())
 // routing
 const router = new Router()
 const apiRouter = new Router({
-  prefix: process.env.BASE_URL || '/api/v1/db'
+    prefix: process.env.BASE_URL || '/api/v1/db'
 })
 
 // Hello World route
-require('./routes/basic')({ router })
+require('./routes/basic')({router})
 // API route
-require('./routes/api')({ apiRouter })
+require('./routes/api')({apiRouter})
 
 // tells the router to use all the routes
 app.use(router.routes())

@@ -8,6 +8,17 @@ function topZones(viewName) {
     .select('*')
 }
 
+function getZones() {
+  return knex('zones')
+      .select('*')
+}
+// return top zones
+function zoneTrips(zone,dt) {
+  return knex.raw(`select * from trips('${zone}','${dt}')`)
+}
+
 module.exports = {
-  topZones
+  topZones,
+  getZones,
+  zoneTrips
 }

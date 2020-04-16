@@ -30,11 +30,26 @@ yarn jest
 ###Lint
 yarn lint
 
-### Web API Top Zones 
- 
-### GET
-http://localhost:3000/api/v1/db/top-zones/:order*
-*order= optional type = (dropoffs || pickups) if not provided is "dropoffs".
+### Web API 
 
-### POST
-curl -d "view=dropoffs" -X POST http://localhost:3000/api/v1/db/top-zones
+####Top Zones 
+##### GET
+http://localhost:3000/api/v1/db/top-zones/:order*
+:order*= optional type = (dropoffs || pickups) if not provided is "dropoffs".
+
+##### POST
+curl -d "order=dropoffs" -X POST http://localhost:3000/api/v1/db/top-zones
+
+####Zones 
+##### GET
+http://localhost:3000/api/v1/db/zones
+
+####Zone Trips 
+##### GET
+http://localhost:3000/api/v1/db/zone-trips/:zone/date/:date
+:zone= one zone of the zones table.
+:date= date YYY-MM-DD
+
+##### POST
+curl -d "zone=LaGuardia Airport&date=2018-01-12" -X POST http://localhost:3000/api/v1/db/zone-trips
+
