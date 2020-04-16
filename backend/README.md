@@ -2,27 +2,39 @@
 
 ### Node 13.2.0 + NPM 6.13.1 + YARN 1.22.0
 
-## Docker
+## SETUP Environment
 
-1. TODO Download Data...
+>You need to download the datasets to feed to the DB
+you can execute:
+>>node downloadData.js
+---
+>You need docker and docker-compose to feed the datasets to the DB
+>>docker-compose -f docker-compose.yml up -d
 
-2. Use DOCKER-COMPOSE to setup the PG container and upload the dataset. 
+### Problems
 
+Lack of advanced PG knowhow... 
+Advanced SQL quering ...
 
-### Install
-Yarn
+## Project
 
-## Running
+###Install
+yarn
+
+###Running
 node app.js 
 
-## Basic Testing
+###Basic Testing
 yarn jest
 
-## Lint
+###Lint
 yarn lint
 
-## Web API 
-
-
+### Web API Top Zones 
  
+### GET
+http://localhost:3000/api/v1/db/top-zones/:order*
+*order= optional type = (dropoffs || pickups) if not provided is "dropoffs".
 
+### POST
+curl -d "view=dropoffs" -X POST http://localhost:3000/api/v1/db/top-zones
