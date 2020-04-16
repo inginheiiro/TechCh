@@ -13,26 +13,26 @@ you can execute:
 
 ### Problems
 
-Lack of advanced PG knowhow... 
+Lack of advanced PG knowhow ... 
 Advanced SQL quering ...
 
 ## Project
 
-###Install
+### Install
 yarn
 
-###Running
+### Run
 node app.js 
 
-###Basic Testing
+### Basic Testing
 yarn jest
 
-###Lint
+### Lint
 yarn lint
 
 ### Web API 
 
-####Top Zones 
+#### Top Zones 
 ##### GET
 http://localhost:3000/api/v1/db/top-zones/:order*
 :order*= optional type = (dropoffs || pickups) if not provided is "dropoffs".
@@ -42,11 +42,11 @@ http://localhost:3000/api/v1/db/top-zones/:order*
 ##### POST
 curl -d "order=dropoffs" -X POST http://localhost:3000/api/v1/db/top-zones
 
-####Zones 
+#### Zones 
 ##### GET
 http://localhost:3000/api/v1/db/zones
 
-####Zone Trips 
+#### Zone Trips 
 ##### GET
 http://localhost:3000/api/v1/db/zone-trips/:zone/date/:date
 

@@ -33,12 +33,30 @@ export class MapPage implements OnInit {
         return Number(a) + Number(b);
     }
 
-    public loadTopZones() {
+    public async loadTopZones() {
         this.fetchZones().subscribe(data => {
             this.result = data.top_zones;
 
             console.log(this.result);
+        }, error => {
+             this.presentToast('Problems with backend?');
+            }
+        );
+    }
+
+    async presentToast(message: string) {
+        const toast = await this.toastController.create({
+            message ,
+
+            position: 'middle',
+            buttons: [
+                {
+                    icon: 'close-circle',
+                    role: 'cancel'
+                }
+            ]
         });
+        await toast.present();
     }
 
     fetchZones(): Observable<any> {

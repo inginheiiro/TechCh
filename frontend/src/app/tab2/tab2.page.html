@@ -38,7 +38,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="this.result2 && this.result2.length===1">
+  <ion-card *ngIf="this.result2 && this.result2.zone.length===1 ">
     <ion-card-header>
       <ion-card-title>Results</ion-card-title>
     </ion-card-header>
@@ -55,11 +55,11 @@
       </ion-item>
       <ion-item>
         <ion-icon name="arrow-up" ></ion-icon>
-        <ion-label>Pic{{this.result2[0].pu_total}}</ion-label>
+        <ion-label>Pic's&nbsp;{{this.result2.zone[0].pu_total}}</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon name="arrow-down" ></ion-icon>
-        <ion-label>Drop{{this.result2[0].do_total}}</ion-label>
+        <ion-label>Drop's&nbsp;{{this.result2.zone[0].do_total}}</ion-label>
       </ion-item>
 
     </ion-card-content>
