@@ -1,9 +1,41 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>
-            Tab One
+            Home
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+    <ion-item>
+        <ion-label>Select</ion-label>
+        <ion-select [(ngModel)]="this.top"  (ngModelChange)="this.loadTopZones()">
+            <ion-select-option value="dropoffs">DropOffs</ion-select-option>
+            <ion-select-option value="pickups">Pickups</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-card *ngIf="this.result">
+        <ion-card-header>
+            <ion-card-title>Top {{this.top}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+
+            <ion-list *ngFor="let r of this.result">
+                <ion-item>
+                    <ion-label>{{r.Zone}}</ion-label>
+                    <ion-label>Pics {{r.pu_total}}</ion-label>
+                    <ion-label>Drops {{r.do_total}}</ion-label>
+                    <ion-label>>> {{this.Sum(r.do_total,r.pu_total)}}</ion-label>
+                </ion-item>
+
+            </ion-list>
+
+        </ion-card-content>
+    </ion-card>
+
+
+
+</ion-content>

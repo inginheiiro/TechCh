@@ -2,10 +2,12 @@ const Koa = require('koa')
 const logger = require('koa-logger')
 const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
+const cors = require('@koa/cors')
 require('dotenv').config({path: __dirname + '/.env'})
 
 
 const app = new Koa()
+app.use(cors())
 
 // log all events to the terminal
 app.use(logger())

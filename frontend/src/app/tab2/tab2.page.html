@@ -1,9 +1,69 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Second
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-label>Zone Trips</ion-label>
+      <ion-button [disabled]="!(this.dt && this.zone)" fill="outline" slot="end" (click)="this.changed()">Go</ion-button>
+    </ion-item>
+
+    <ion-card-content>
+
+      <ion-item-group>
+        <ion-item-divider>
+
+        </ion-item-divider>
+
+        <ion-item *ngIf="this.result">
+          <ion-label>Zone</ion-label>
+            <ion-select [(ngModel)]="this.zone" >
+              <ion-select-option [value]="item" *ngFor="let item of this.result">{{item.Zone}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" min="2018-01-01" max="2018-12-31" [(ngModel)]="this.dt" ></ion-datetime>
+        </ion-item>
+      </ion-item-group>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="this.result2 && this.result2.length===1">
+    <ion-card-header>
+      <ion-card-title>Results</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-icon name="locate" ></ion-icon>
+        <ion-label>&nbsp;{{this.zone.Zone}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" ></ion-icon>
+        <ion-label>&nbsp;{{this.dt}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="arrow-up" ></ion-icon>
+        <ion-label>Pic{{this.result2[0].pu_total}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="arrow-down" ></ion-icon>
+        <ion-label>Drop{{this.result2[0].do_total}}</ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

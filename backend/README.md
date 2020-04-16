@@ -37,6 +37,8 @@ yarn lint
 http://localhost:3000/api/v1/db/top-zones/:order*
 :order*= optional type = (dropoffs || pickups) if not provided is "dropoffs".
 
+>example: http://localhost:3000/api/v1/db/top-zones/dropoffs
+
 ##### POST
 curl -d "order=dropoffs" -X POST http://localhost:3000/api/v1/db/top-zones
 
@@ -47,9 +49,15 @@ http://localhost:3000/api/v1/db/zones
 ####Zone Trips 
 ##### GET
 http://localhost:3000/api/v1/db/zone-trips/:zone/date/:date
+
 :zone= one zone of the zones table.
 :date= date YYY-MM-DD
+
+>example: http://localhost:3000/api/v1/db/zone-trips/LaGuardia Airport/date/2018-01-12
 
 ##### POST
 curl -d "zone=LaGuardia Airport&date=2018-01-12" -X POST http://localhost:3000/api/v1/db/zone-trips
 
+
+##### TODO
+Tests with JEST... i'm way over the 4h on this...

@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Plugins} from '@capacitor/core';
-import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
 import {ToastController} from '@ionic/angular';
+import {Observable} from 'rxjs';
 
 const {Device} = Plugins;
 
@@ -15,15 +14,35 @@ const {Device} = Plugins;
 })
 export class MapPage implements OnInit {
 
+    private endpointZones = 'http://localhost:3000/api/v1/db/top-zones/';
+
+    public top = 'dropoffs';
+    public result;
+
     constructor(
         private http: HttpClient,
         public toastController: ToastController
     ) {
     }
 
-
     async ngOnInit() {
+        this.loadTopZones();
+    }
 
+    public Sum(a: number, b: number): number {
+        return Number(a) + Number(b);
+    }
+
+    public loadTopZones() {
+        this.fetchZones().subscribe(data => {
+            this.result = data.top_zones;
+
+            console.log(this.result);
+        });
+    }
+
+    fetchZones(): Observable<any> {
+        return this.http.get(`${this.endpointZones}${this.top}`);
     }
 
 
