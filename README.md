@@ -19,8 +19,5 @@ Sketch Tech Challenge
 
 ### Info
 
-Well ... at this stage i've spent ~4H in setting up Frontend + backend with minimal schema and working!!!
-Not connected yet.
- 
- I Guess i've lost all my credits in only this :(
+Done.
 

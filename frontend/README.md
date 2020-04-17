@@ -9,15 +9,25 @@ Mobile App: IONIC PWA Sketch Tech Challenge
  - angular      9.0.6
  - yarn         1.22.0
  
-## Features .
-
+## install angular/cli globally
+npm install -g @angular/cli
 
 ### install
 yarn
 
+## **** warning gyp error on MAC OS
+gyp: No Xcode or CLT version detected
+
+mac issues with gyp... 
+>try sudo xcode-select --reset
+>
+>yarn
+
 ### Run
-ng start
+ng serve
 
 ### Deploy to PWA
 ionic build --prod
 
+### Info
+Total hours on frontend (1.5h);
