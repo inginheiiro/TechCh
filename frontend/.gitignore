@@ -33,6 +33,4 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
-environment.ts
-
 !/yarn.lock

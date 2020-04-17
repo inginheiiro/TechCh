@@ -60,4 +60,6 @@ curl -d "zone=LaGuardia Airport&date=2018-01-12" -X POST http://localhost:3000/a
 
 
 ##### TODO
-Tests with JEST... i'm way over the 4h on this...
+Tests with JEST... 
+
+Total hours on backend, including piping; Learning PG; 10H ouch !!
